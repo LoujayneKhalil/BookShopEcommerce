@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-5 d-flex justify-content-center">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="{{ product.image.url }}" alt="{{ product.name_en }}" class="img-fluid" style="width: 300px;height:425px">
+      </div>
+      <div class="col-md-6">
+        <h2>{{ product.name_en }}</h2>
+        <p>Arabic Name: {{ product.name_ar }}</p>
+        <p>Price: EGP {{ product.unit_price }}</p>
+        <p>ISBN: {{ product.isbn }}</p>
+        <button data-product="{{ product.id }}" data-action="add" data-name="{{ product.name_en }}" data-price="{{ product.unit_price }}" class="add-cart update-cart d-flex justify-content-center align-items-center gap-3">Add to Cart <span class="fa-solid fa-cart-plus"></span></button>
+      </div>
+    </div>
+  </div>
+{% endblock %}

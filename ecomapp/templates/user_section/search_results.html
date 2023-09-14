@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+
+  <h4 class="mt-3">Search Results for "{{ query }}"</h4>
+
+  <!-- Product List for Search Results -->
+  <div class="container">
+    <div class="row m-auto">
+      {% for product in products %}
+        <div class="col-md-3 my-3 mx-2 product-details" style="width: 300px;">
+          <div class="card book-card" style="height: 100%;">
+            {% if product.image %}
+              <img class="bookImg" src="{{ product.image.url }}" class="card-img-top" alt="{{ product.image.url }}" />
+            {% else %}
+              <p>No Category</p>
+            {% endif %}
+            <div class="card-body d-flex flex-column justify-content-between gap-2">
+              <a class="title-link" href="{% url 'product_detail' product.id %}"><h5 class="card-title">{{ product.name_en }}</h5></a>
+              <h6>EGP {{ product.unit_price }}</h6>
+              <button data-product="{{ product.id }}" data-action="add" data-name="{{ product.name_en }}" data-price="{{ product.unit_price }}" class="add-cart update-cart d-flex justify-content-center align-items-center gap-3">Add to Cart <span class="fa-solid fa-cart-plus"></span></button>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

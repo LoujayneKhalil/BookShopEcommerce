@@ -1,0 +1,14 @@
+{
+    "python.testing.pytestArgs": [
+        "ecomapp"
+    ],
+    "python.testing.unittestEnabled": true,
+    "python.testing.pytestEnabled": false,
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./ecomapp",
+        "-p",
+        "*test*.py"
+    ]
+}
